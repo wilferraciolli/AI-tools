@@ -27,3 +27,9 @@ replay_pid*
 /.idea/misc.xml
 /.idea/modules.xml
 /.idea/vcs.xml
+
+
+pdf-to-json/.idea/modules.xml
+
+pdf-to-json/.idea/**
+/n8n-local/ollama_data/models/blobs/*

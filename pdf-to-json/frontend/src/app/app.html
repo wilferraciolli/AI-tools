@@ -1,0 +1,27 @@
+<div class="container">
+  <h1>PDF to JSON Converter</h1>
+  <p>Upload a PDF file to convert it into a structured JSON using GLM-OCR and LLM Parser.</p>
+
+  <div class="upload-section">
+    <input type="file" (change)="onFileSelected($event)" accept="application/pdf" />
+    <button (click)="onUpload()" [disabled]="!selectedFile || loading">
+      {{ loading ? 'Processing...' : 'Convert to JSON' }}
+    </button>
+  </div>
+
+  <div *ngIf="loading" class="loader">
+    <p>Processing your PDF... This may take a few seconds.</p>
+  </div>
+
+  <div *ngIf="error" class="error">
+    {{ error }}
+  </div>
+
+  <div *ngIf="result" class="result-section">
+    <div class="header">
+      <h2>Conversion Result</h2>
+      <button (click)="downloadJson()">Download JSON</button>
+    </div>
+    <pre>{{ result | json }}</pre>
+  </div>
+</div>
